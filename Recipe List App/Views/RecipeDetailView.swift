@@ -25,8 +25,31 @@ struct RecipeDetailView: View {
                 // MARK: Ingredients
                 VStack(alignment: .leading) {
                     Text("Ingredients").font(.headline).padding(.top, 10).padding([.bottom, .top],5)
-                    ForEach(recipe.ingredients, id: \.self) {ingredient in
-                        Text( ingredient).padding(.bottom,1)
+                    ForEach(recipe.ingredients) {i in
+                        Text("• " + i.name)
+                        
+                        /*
+                        // name, num, denom, unit
+                        if i.num != nil {
+                            if i.denom != nil {
+                                if i.unit != nil {
+                                    Text("\(i.num!)/\(i.denom!) \(i.unit!) \(i.name)")
+                                }
+                                else {
+                                    Text("\(i.num!)/\(i.denom!) \(i.name)")
+                                }
+                            }
+                            else {
+                                if i.unit != nil {
+                                    Text("\(i.num!) \(i.unit!) \(i.name)")
+                                }
+                                else {
+                                    Text("\(i.num!) \(i.name)").padding(.bottom,1)
+                                }
+                            }
+                        }
+                        */
+                        
                     }
                 }.padding(.horizontal,15)
                 
